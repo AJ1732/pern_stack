@@ -6,12 +6,12 @@ const app = express();
 const port = 5000;
 
 // MIDDLEWARE
-// app.use(cors());
-app.use(cors({
-  origin: `http://localhost:${port}/`,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: []
-}));
+app.use(cors());
+// app.use(cors({
+//   origin: `http://localhost:${port}/`,
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   allowedHeaders: []
+// }));
 app.use(express.json());
 
 // ROUTES
