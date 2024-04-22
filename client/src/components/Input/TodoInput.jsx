@@ -12,12 +12,13 @@ const TodoInput = () => {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(todoBody)
       });
-      console.log(response);
+      setDescription('');
+      window.location = '/'
+      // console.log(response);
     } catch (err) {
       console.error(err.message);
     }
-
-    console.log('Todo Submitted');
+    // console.log('Todo Submitted');
   }
 
   return (
