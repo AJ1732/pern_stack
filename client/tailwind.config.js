@@ -7,15 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        teal: "teal",
-        darkshade: "#21252B",
-        lightshade: "#D3DDEF",
-        greyshade: "#383D46"
+        'teal': '#008080',
+        "darkshade": '#21252B',
+        'lightshade': '#D3DDEF',
+        'greyshade': '#383D46',
       },
       fontFamily: {
-        "dm-serif": ["DM Serif Display", "serif"],
-        "poppins": ["Poppins", "sans-serif"],
-        "lora": ["Lora", "serif"],
+        'dm-serif': ['DM Serif Display', 'serif'],
+        'poppins': ['Poppins', 'sans-serif'],
+        'lora': ['Lora', 'serif'],
       }
     },
   },
