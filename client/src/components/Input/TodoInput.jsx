@@ -2,28 +2,35 @@ import React, { useState } from 'react'
 
 const TodoInput = () => {
   const [ description, setDescription ] = useState('')
+  const [ error, setError ] = useState('')
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const todoBody = { description }
-      const response = await fetch("http://localhost:5000/todos", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(todoBody)
-      });
-      setDescription('');
-      window.location = '/'
-      // console.log(response);
-    } catch (err) {
-      console.error(err.message);
+    if (description.length > 0) {
+      try {
+        const todoBody = { description }
+        const response = await fetch("http://localhost:5000/todos", {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(todoBody)
+        });
+        setDescription('');
+        setError('') 
+        window.location = '/'
+        // console.log(response);
+      } catch (err) {
+        setError(err.message) 
+        console.error(err.message);
+      }
+      // console.log('Todo Submitted');
+    } else {
+      setError('Enter a todo') 
     }
-    // console.log('Todo Submitted');
   }
 
   return (
     <form action='' onSubmit={handleSubmit} className='overflow-hidden | bg-shade py-7 px-5 drop-shadow-md'>
-      <fieldset className='space-y-6'>
+      <fieldset className='relative space-y-6'>
         {/* TITLE INPUT */}
         <div className='grid gap-1'>
           <label htmlFor="title">Todo Input</label>
@@ -39,10 +46,10 @@ const TodoInput = () => {
         </div>
 
         {/* SUBMIT BUTTON */}
-        <button className='bg-teal'>Submit</button>
+        <button className='absolute top-2 right-1 bg-teal'>Submit</button>
       </fieldset>
 
-      {/* {error && <div className='text-red-500 text-sm'>{error}</div>} */}
+      {error && <div className='bg-red-50 text-red-500 text-sm mt-2 py-1.5 px-4 | rounded border border-red-500'>{error}</div>}
     </form>
   )
 }

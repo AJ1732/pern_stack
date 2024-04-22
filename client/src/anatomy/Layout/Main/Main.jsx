@@ -1,6 +1,5 @@
 import React from 'react'
 import TodoInput from '../../../components/Input/TodoInput'
-import TodoCard from '../../../components/Card/TodoCard'
 import TodoTable from '../../../components/Table/TodoTable'
 
 const Main = () => {
@@ -15,7 +14,6 @@ const Main = () => {
       <section>
         <h3>All Todos</h3>
         <TodoTable />
-        <TodoCard /> 
       </section>
     </main>
   )
