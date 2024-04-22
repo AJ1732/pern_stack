@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --blue: #1e90ff;
+  --purple: #646cff;
+  --purple-hover: #535bf2;
+  --purple-hover-2: #747bff;
+  --green: teal;
+  --white: #ffffff;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* GRID LAYOUT */
+.content-grid {
+  /* spacing variables */
+  --padding-inline: 1rem;
+  --content-max-width: 1120px;
+  --breakout-max-width: 1200px;
+
+  --breakout-size: calc(
+    (var(--breakout-max-width) - var(--content-max-width)) / 2
+  );
+
+  display: grid;
+  grid-template-columns:
+    [full-width-start]
+    minmax(var(--padding-inline), 1fr) 
+    
+    [breakout-start] 
+    minmax(0, var(--breakout-size))
+ 
+
+    [content-start] 
+    min(100% - (var(--padding-inline) * 2), var(--content-max-width)) /* choosing which is smaller */
+    [content-end]
+
+    minmax(0, var(--breakout-size)) 
+    [breakout-end]
+
+    minmax(var(--padding-inline), 1fr) 
+    [full-width-end]
+  ;
+
+}
+
+.content-grid.all {
+  grid-template-rows: 100px 1fr 70px;
+}
+
+.content-grid > :not(.breakout, .full-width) {
+  grid-column: content;
+}
+
+.content-grid > .breakout {
+  grid-column: breakout;
+}
+
+.content-grid > .full-width {
+  grid-column: full-width;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: var(--green);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+a {
+  font-weight: 500;
+  color: var(--green);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--green);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: var(--green);
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
