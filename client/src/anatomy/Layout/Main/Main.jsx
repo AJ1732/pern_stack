@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <main className='min-h-[calc(100dvh-140px)] font-poppins py-5 |'>
       <section>
-        <h2 className='font-lora'>PERN Todos</h2>
+        <h2 className='text-xl'>PERN Todos</h2>
         <TodoInput /> 
       </section>
     </main>

@@ -8,9 +8,12 @@ export default {
     extend: {
       colors: {
         'teal': '#008080',
-        "darkshade": '#21252B',
+        'orange': '#FFA048',
+        'darkshade': '#222327',
         'lightshade': '#D3DDEF',
-        'greyshade': '#383D46',
+        'greyshade': '#292B31',
+        'halfwhite': '#FFFFFF80',
+        'textshade': '#989CAA',
       },
       fontFamily: {
         'dm-serif': ['DM Serif Display', 'serif'],
