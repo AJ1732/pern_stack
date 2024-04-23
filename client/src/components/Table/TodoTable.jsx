@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import TodoEdit from '../Input/TodoEdit';
 
 const TodoTable = () => {
   const [ allTodos, setAllTodos ] = useState([]);
@@ -40,11 +41,13 @@ const TodoTable = () => {
           </tr>
         </thead>
         <tbody>
-          {allTodos.map(({ todo_id, description }) => (
+          {allTodos
+            .sort((a, b) => { return a.todo_id - b.todo_id }) // *To sort the array
+            .map(({ todo_id, description }) => (
             <tr key={todo_id} className='h-10 odd:bg-greyshade'>
               <td className='px-2'>{description}</td>
               <td className='px-2'>
-                <button className=' px-4'>Edit</button>
+                <button className='px-4'><TodoEdit id={todo_id} desc={description} /></button>
               </td>
               <td className='px-2'>
                 <button onClick={() => handleDelete(todo_id)} className='bg-red-500 px-4'>Delete</button>
