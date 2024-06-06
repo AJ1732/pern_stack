@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import TodoEdit from '../Input/TodoEdit';
 
-const TodoTable = () => {
+const PostTable = () => {
   const [ allTodos, setAllTodos ] = useState([]);
 
-  // GET ALL TODOS FROM DATABASE
+  // GET ALL POST FROM DATABASE
   useEffect(() => {
     const getTodos = async () => {
       try {
@@ -18,7 +18,7 @@ const TodoTable = () => {
     getTodos();
   }, [])
 
-  // DELETE TODO FROM DATABASE
+  // DELETE POST FROM DATABASE
   const handleDelete = async (id) => {
     try {
       const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`, {
@@ -60,4 +60,4 @@ const TodoTable = () => {
   )
 }
 
-export default TodoTable
+export default PostTable

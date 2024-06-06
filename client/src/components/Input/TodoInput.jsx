@@ -33,7 +33,7 @@ const TodoInput = () => {
       <fieldset className='relative space-y-6'>
         {/* TITLE INPUT */}
         <div className='grid gap-1'>
-          <label htmlFor="title">Todo Input</label>
+          <label htmlFor="title">Post Input</label>
           <input 
             id="title"
             type="text" 

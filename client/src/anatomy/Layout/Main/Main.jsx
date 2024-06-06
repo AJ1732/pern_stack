@@ -1,19 +1,19 @@
 import React from 'react'
 import TodoInput from '../../../components/Input/TodoInput'
-import TodoTable from '../../../components/Table/TodoTable'
+import PostTable from '../../../components/Table/PostTable'
 
 const Main = () => {
  
   return (
     <main className='min-h-[calc(100dvh-140px)] font-poppins py-5 |'>
-      <h2 className='text-xl'>PERN Todos</h2>
+      <h2 className='text-xl'>PERN Post</h2>
       <section>
-        <h3>Add Todo</h3>
+        <h3>Add Post</h3>
         <TodoInput /> 
       </section>
       <section>
-        <h3>All Todos</h3>
-        <TodoTable />
+        <h3>All Posts</h3>
+        <PostTable />
       </section>
     </main>
   )
